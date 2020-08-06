@@ -42,12 +42,12 @@
             this.NineButton = new System.Windows.Forms.Button();
             this.ClearButton = new System.Windows.Forms.Button();
             this.BackSpaceButton = new System.Windows.Forms.Button();
-            this.WeightInputTypeTextBox = new System.Windows.Forms.Label();
+            this.WeightInputTypeLabel = new System.Windows.Forms.Label();
             this.WeightInputTextBox = new System.Windows.Forms.TextBox();
             this.HeightInputTypeLabel = new System.Windows.Forms.Label();
             this.FeetInputTextBox = new System.Windows.Forms.TextBox();
             this.FeetLabel = new System.Windows.Forms.Label();
-            this.InchesInoutTextBox = new System.Windows.Forms.TextBox();
+            this.InchesInputTextBox = new System.Windows.Forms.TextBox();
             this.InchesLabel = new System.Windows.Forms.Label();
             this.SelectGroupBox = new System.Windows.Forms.GroupBox();
             this.ImperialRadioButton = new System.Windows.Forms.RadioButton();
@@ -80,12 +80,12 @@
             this.tableLayoutPanel1.Controls.Add(this.BackSpaceButton, 3, 5);
             this.tableLayoutPanel1.Controls.Add(this.ThreeButton, 3, 7);
             this.tableLayoutPanel1.Controls.Add(this.TwoButton, 2, 7);
-            this.tableLayoutPanel1.Controls.Add(this.WeightInputTypeTextBox, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.WeightInputTypeLabel, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.WeightInputTextBox, 3, 4);
             this.tableLayoutPanel1.Controls.Add(this.HeightInputTypeLabel, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.FeetInputTextBox, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.FeetLabel, 2, 3);
-            this.tableLayoutPanel1.Controls.Add(this.InchesInoutTextBox, 3, 3);
+            this.tableLayoutPanel1.Controls.Add(this.InchesInputTextBox, 3, 3);
             this.tableLayoutPanel1.Controls.Add(this.InchesLabel, 4, 3);
             this.tableLayoutPanel1.Controls.Add(this.SelectGroupBox, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.ResultMeaningTextBox, 0, 1);
@@ -226,17 +226,17 @@
             this.BackSpaceButton.Text = "<-";
             this.BackSpaceButton.UseVisualStyleBackColor = true;
             // 
-            // WeightInputTypeTextBox
+            // WeightInputTypeLabel
             // 
-            this.WeightInputTypeTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.WeightInputTypeTextBox.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.WeightInputTypeTextBox, 3);
-            this.WeightInputTypeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WeightInputTypeTextBox.Location = new System.Drawing.Point(3, 196);
-            this.WeightInputTypeTextBox.Name = "WeightInputTypeTextBox";
-            this.WeightInputTypeTextBox.Size = new System.Drawing.Size(151, 22);
-            this.WeightInputTypeTextBox.TabIndex = 16;
-            this.WeightInputTypeTextBox.Text = "Weight in Pounds";
+            this.WeightInputTypeLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.WeightInputTypeLabel.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.WeightInputTypeLabel, 3);
+            this.WeightInputTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WeightInputTypeLabel.Location = new System.Drawing.Point(3, 196);
+            this.WeightInputTypeLabel.Name = "WeightInputTypeLabel";
+            this.WeightInputTypeLabel.Size = new System.Drawing.Size(151, 22);
+            this.WeightInputTypeLabel.TabIndex = 16;
+            this.WeightInputTypeLabel.Text = "Weight in Pounds";
             // 
             // WeightInputTextBox
             // 
@@ -275,12 +275,12 @@
             this.FeetLabel.TabIndex = 20;
             this.FeetLabel.Text = "ft.";
             // 
-            // InchesInoutTextBox
+            // InchesInputTextBox
             // 
-            this.InchesInoutTextBox.Location = new System.Drawing.Point(171, 143);
-            this.InchesInoutTextBox.Name = "InchesInoutTextBox";
-            this.InchesInoutTextBox.Size = new System.Drawing.Size(50, 38);
-            this.InchesInoutTextBox.TabIndex = 21;
+            this.InchesInputTextBox.Location = new System.Drawing.Point(171, 143);
+            this.InchesInputTextBox.Name = "InchesInputTextBox";
+            this.InchesInputTextBox.Size = new System.Drawing.Size(50, 38);
+            this.InchesInputTextBox.TabIndex = 21;
             // 
             // InchesLabel
             // 
@@ -317,6 +317,7 @@
             this.ImperialRadioButton.TabStop = true;
             this.ImperialRadioButton.Text = "Imperial unit";
             this.ImperialRadioButton.UseVisualStyleBackColor = true;
+            this.ImperialRadioButton.CheckedChanged += new System.EventHandler(this.ImperialRadioButton_CheckedChanged);
             // 
             // MetricRadioButton
             // 
@@ -328,6 +329,7 @@
             this.MetricRadioButton.TabIndex = 0;
             this.MetricRadioButton.Text = "Metric Unit";
             this.MetricRadioButton.UseVisualStyleBackColor = true;
+            this.MetricRadioButton.CheckedChanged += new System.EventHandler(this.MetricRadioButton_CheckedChanged);
             // 
             // ResultMeaningTextBox
             // 
@@ -393,12 +395,12 @@
         private System.Windows.Forms.Button BackSpaceButton;
         private System.Windows.Forms.Button ThreeButton;
         private System.Windows.Forms.Button TwoButton;
-        private System.Windows.Forms.Label WeightInputTypeTextBox;
+        private System.Windows.Forms.Label WeightInputTypeLabel;
         private System.Windows.Forms.TextBox WeightInputTextBox;
         private System.Windows.Forms.Label HeightInputTypeLabel;
         private System.Windows.Forms.TextBox FeetInputTextBox;
         private System.Windows.Forms.Label FeetLabel;
-        private System.Windows.Forms.TextBox InchesInoutTextBox;
+        private System.Windows.Forms.TextBox InchesInputTextBox;
         private System.Windows.Forms.Label InchesLabel;
         private System.Windows.Forms.GroupBox SelectGroupBox;
         private System.Windows.Forms.RadioButton MetricRadioButton;
