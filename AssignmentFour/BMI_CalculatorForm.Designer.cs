@@ -45,16 +45,14 @@
             this.WeightInputTypeLabel = new System.Windows.Forms.Label();
             this.WeightInputTextBox = new System.Windows.Forms.TextBox();
             this.HeightInputTypeLabel = new System.Windows.Forms.Label();
-            this.FeetInputTextBox = new System.Windows.Forms.TextBox();
-            this.FeetLabel = new System.Windows.Forms.Label();
-            this.InchesInputTextBox = new System.Windows.Forms.TextBox();
-            this.InchesLabel = new System.Windows.Forms.Label();
             this.SelectGroupBox = new System.Windows.Forms.GroupBox();
             this.MetricRadioButton = new System.Windows.Forms.RadioButton();
             this.ImperialRadioButton = new System.Windows.Forms.RadioButton();
             this.ResultMeaningTextBox = new System.Windows.Forms.TextBox();
             this.BMI_ResultLabel = new System.Windows.Forms.Label();
             this.BMI_ResultTextBox = new System.Windows.Forms.TextBox();
+            this.HeightInputTextBox = new System.Windows.Forms.TextBox();
+            this.DecimalButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SelectGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -83,14 +81,12 @@
             this.tableLayoutPanel1.Controls.Add(this.WeightInputTypeLabel, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.WeightInputTextBox, 3, 4);
             this.tableLayoutPanel1.Controls.Add(this.HeightInputTypeLabel, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.FeetInputTextBox, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.FeetLabel, 2, 3);
-            this.tableLayoutPanel1.Controls.Add(this.InchesInputTextBox, 3, 3);
-            this.tableLayoutPanel1.Controls.Add(this.InchesLabel, 4, 3);
             this.tableLayoutPanel1.Controls.Add(this.SelectGroupBox, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.ResultMeaningTextBox, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.BMI_ResultLabel, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.BMI_ResultTextBox, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.HeightInputTextBox, 3, 3);
+            this.tableLayoutPanel1.Controls.Add(this.DecimalButton, 4, 5);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 9;
@@ -115,6 +111,7 @@
             this.CalculateButton.TabIndex = 0;
             this.CalculateButton.Text = "Calculate";
             this.CalculateButton.UseVisualStyleBackColor = true;
+            this.CalculateButton.Click += new System.EventHandler(this.CalculateButton_Click);
             // 
             // ZeroButton
             // 
@@ -209,10 +206,9 @@
             // 
             // BackSpaceButton
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.BackSpaceButton, 2);
             this.BackSpaceButton.Location = new System.Drawing.Point(171, 233);
             this.BackSpaceButton.Name = "BackSpaceButton";
-            this.BackSpaceButton.Size = new System.Drawing.Size(106, 39);
+            this.BackSpaceButton.Size = new System.Drawing.Size(50, 39);
             this.BackSpaceButton.TabIndex = 15;
             this.BackSpaceButton.Text = "<-";
             this.BackSpaceButton.UseVisualStyleBackColor = true;
@@ -263,52 +259,13 @@
             // 
             this.HeightInputTypeLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.HeightInputTypeLabel.AutoSize = true;
-            this.HeightInputTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HeightInputTypeLabel.Location = new System.Drawing.Point(3, 153);
+            this.tableLayoutPanel1.SetColumnSpan(this.HeightInputTypeLabel, 3);
+            this.HeightInputTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HeightInputTypeLabel.Location = new System.Drawing.Point(3, 151);
             this.HeightInputTypeLabel.Name = "HeightInputTypeLabel";
-            this.HeightInputTypeLabel.Size = new System.Drawing.Size(50, 18);
+            this.HeightInputTypeLabel.Size = new System.Drawing.Size(138, 22);
             this.HeightInputTypeLabel.TabIndex = 18;
-            this.HeightInputTypeLabel.Text = "Height";
-            // 
-            // FeetInputTextBox
-            // 
-            this.FeetInputTextBox.Location = new System.Drawing.Point(59, 143);
-            this.FeetInputTextBox.Name = "FeetInputTextBox";
-            this.FeetInputTextBox.Size = new System.Drawing.Size(50, 38);
-            this.FeetInputTextBox.TabIndex = 19;
-            this.FeetInputTextBox.TextChanged += new System.EventHandler(this.FeetInputTextBox_TextChanged);
-            this.FeetInputTextBox.Enter += new System.EventHandler(this.FeetInputTextBox_TextChanged);
-            // 
-            // FeetLabel
-            // 
-            this.FeetLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.FeetLabel.AutoSize = true;
-            this.FeetLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FeetLabel.Location = new System.Drawing.Point(115, 167);
-            this.FeetLabel.Name = "FeetLabel";
-            this.FeetLabel.Size = new System.Drawing.Size(20, 18);
-            this.FeetLabel.TabIndex = 20;
-            this.FeetLabel.Text = "ft.";
-            // 
-            // InchesInputTextBox
-            // 
-            this.InchesInputTextBox.Location = new System.Drawing.Point(171, 143);
-            this.InchesInputTextBox.Name = "InchesInputTextBox";
-            this.InchesInputTextBox.Size = new System.Drawing.Size(50, 38);
-            this.InchesInputTextBox.TabIndex = 21;
-            this.InchesInputTextBox.TextChanged += new System.EventHandler(this.InchesInputTextBox_TextChanged);
-            this.InchesInputTextBox.Enter += new System.EventHandler(this.InchesInputTextBox_TextChanged);
-            // 
-            // InchesLabel
-            // 
-            this.InchesLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.InchesLabel.AutoSize = true;
-            this.InchesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InchesLabel.Location = new System.Drawing.Point(227, 167);
-            this.InchesLabel.Name = "InchesLabel";
-            this.InchesLabel.Size = new System.Drawing.Size(23, 18);
-            this.InchesLabel.TabIndex = 22;
-            this.InchesLabel.Text = "in.";
+            this.HeightInputTypeLabel.Text = "Height in Inches";
             // 
             // SelectGroupBox
             // 
@@ -375,6 +332,25 @@
             this.BMI_ResultTextBox.Size = new System.Drawing.Size(162, 38);
             this.BMI_ResultTextBox.TabIndex = 26;
             // 
+            // HeightInputTextBox
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.HeightInputTextBox, 2);
+            this.HeightInputTextBox.Location = new System.Drawing.Point(171, 143);
+            this.HeightInputTextBox.Name = "HeightInputTextBox";
+            this.HeightInputTextBox.Size = new System.Drawing.Size(106, 38);
+            this.HeightInputTextBox.TabIndex = 19;
+            this.HeightInputTextBox.Enter += new System.EventHandler(this.InchesInputTextBox_TextChanged);
+            // 
+            // DecimalButton
+            // 
+            this.DecimalButton.Location = new System.Drawing.Point(227, 233);
+            this.DecimalButton.Name = "DecimalButton";
+            this.DecimalButton.Size = new System.Drawing.Size(50, 39);
+            this.DecimalButton.TabIndex = 10;
+            this.DecimalButton.Text = ".";
+            this.DecimalButton.UseVisualStyleBackColor = true;
+            this.DecimalButton.Click += new System.EventHandler(this.NumberButton_Click);
+            // 
             // BMI_CalculatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -415,16 +391,14 @@
         private System.Windows.Forms.Label WeightInputTypeLabel;
         private System.Windows.Forms.TextBox WeightInputTextBox;
         private System.Windows.Forms.Label HeightInputTypeLabel;
-        private System.Windows.Forms.TextBox FeetInputTextBox;
-        private System.Windows.Forms.Label FeetLabel;
-        private System.Windows.Forms.TextBox InchesInputTextBox;
-        private System.Windows.Forms.Label InchesLabel;
+        private System.Windows.Forms.TextBox HeightInputTextBox;
         private System.Windows.Forms.GroupBox SelectGroupBox;
         private System.Windows.Forms.RadioButton MetricRadioButton;
         private System.Windows.Forms.RadioButton ImperialRadioButton;
         private System.Windows.Forms.TextBox ResultMeaningTextBox;
         private System.Windows.Forms.Label BMI_ResultLabel;
         private System.Windows.Forms.TextBox BMI_ResultTextBox;
+        private System.Windows.Forms.Button DecimalButton;
     }
 }
 

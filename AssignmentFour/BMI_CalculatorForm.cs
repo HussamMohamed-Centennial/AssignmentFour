@@ -14,7 +14,7 @@ namespace AssignmentFour
     public partial class BMI_CalculatorForm : Form
     {
         // PUBLIC PROPERTIES
-        public static bool _feetInputTextBoxSelected = false;
+        
         public static bool _inchesInputTextBoxSelected = false;
         public static bool _weightInputTextBoxSelected = false;
         
@@ -30,16 +30,11 @@ namespace AssignmentFour
         /// <param name="e"></param>
         private void ImperialRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            HeightInputTypeLabel.Text = "Height";
-            HeightInputTypeLabel.Font = new Font("Microsoft Sans Serif", 11.0f);
+            HeightInputTypeLabel.Text = "Height in Inches";
+            HeightInputTypeLabel.Font = new Font("Microsoft Sans Serif", 13.0f);
             WeightInputTypeLabel.Text = "Weight in Pounds";
             WeightInputTypeLabel.Font = new Font("Microsoft Sans Serif", 13.0f);
-            FeetLabel.Text = "ft.";
-            FeetLabel.Font = new Font("Microsoft Sans Serif", 11.0f);
-            InchesLabel.Enabled = true;
-            InchesInputTextBox.Enabled = true;
-            InchesLabel.Text = "in.";
-            InchesLabel.Font = new Font("Microsoft Sans Serif", 11.0f);
+            ReturnToDefault();
         }
 
         /// <summary>
@@ -49,28 +44,13 @@ namespace AssignmentFour
         /// <param name="e"></param>
         private void MetricRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            HeightInputTypeLabel.Text = "Height";
-            HeightInputTypeLabel.Font = new Font("Microsoft Sans Serif", 11.0f);
+            HeightInputTypeLabel.Text = "Height in Meters";
+            HeightInputTypeLabel.Font = new Font("Microsoft Sans Serif", 13.0f);
             WeightInputTypeLabel.Text = "Weight in Kilogram";
             WeightInputTypeLabel.Font = new Font("Microsoft Sans Serif", 13.0f);
-            FeetLabel.Text = "cm.";
-            FeetLabel.Font = new Font("Microsoft Sans Serif", 11.0f);
-            InchesLabel.Enabled = false;
-            InchesInputTextBox.Enabled = false;
+            ReturnToDefault();
         }
 
-        /// <summary>
-        /// This event handler will ensure the focus will be on single text box each time based on user choice
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void FeetInputTextBox_TextChanged(object sender, EventArgs e)
-        {
-            _feetInputTextBoxSelected = true;
-            _inchesInputTextBoxSelected = false;
-            _weightInputTextBoxSelected = false;
-            //Debug.WriteLine("feet select fired");
-        }
 
         /// <summary>
         /// This event handler will ensure the focus will be on single text box each time based on user choice
@@ -80,7 +60,6 @@ namespace AssignmentFour
         private void InchesInputTextBox_TextChanged(object sender, EventArgs e)
         {
             _inchesInputTextBoxSelected = true;
-            _feetInputTextBoxSelected = false;
             _weightInputTextBoxSelected = false;
             //Debug.WriteLine("inches select fired");
         }
@@ -94,7 +73,6 @@ namespace AssignmentFour
         {
             _weightInputTextBoxSelected = true;
             _inchesInputTextBoxSelected = false;
-            _feetInputTextBoxSelected = false;
             //Debug.WriteLine("weight select fired");
         }
 
@@ -104,34 +82,110 @@ namespace AssignmentFour
 
             if (_inchesInputTextBoxSelected == true)
             {
-                InchesInputTextBox.Text += numberButton.Text;
+                if (numberButton.Text == ".")
+                {
+                    if (!HeightInputTextBox.Text.Contains("."))
+                    {
+                        HeightInputTextBox.Text += numberButton.Text;
+                    }
+                }
+                else
+                {
+                    HeightInputTextBox.Text += numberButton.Text;
+                }
+                
             }
-
-            if (_feetInputTextBoxSelected == true)
-            {
-                FeetInputTextBox.Text += numberButton.Text;
-            }
-
+            
             if (_weightInputTextBoxSelected == true)
             {
-                WeightInputTextBox.Text += numberButton.Text;
+                if (numberButton.Text == ".")
+                {
+                    if (!WeightInputTextBox.Text.Contains("."))
+                    {
+                        WeightInputTextBox.Text += numberButton.Text;
+                    }
+                }
+                else
+                {
+                    WeightInputTextBox.Text += numberButton.Text;
+                }
+
+
             }
         }
 
         /// <summary>
-        /// This evemt handler will allow clear button all text field will be clared and public properties will return to the default value
+        /// This event handler will call return to default method to allow clear button to clear
+        /// all user inputs
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void ClearButton_Click(object sender, EventArgs e)
         {
-            InchesInputTextBox.Clear();
-            FeetInputTextBox.Clear();
+         ReturnToDefault();
+        }
+
+        private void CalculateButton_Click(object sender, EventArgs e)
+        {
+            if (ImperialRadioButton.Checked)
+            {
+                double weightValue = Convert.ToDouble(WeightInputTextBox.Text);
+                Debug.WriteLine(weightValue);
+                double heightVlaue = Convert.ToDouble(HeightInputTextBox.Text);
+                Debug.WriteLine(heightVlaue);
+                double result = ((weightValue * 703) / (heightVlaue * heightVlaue));
+                double finalResult = Math.Round(result,2);
+                BMI_ResultTextBox.Text = Convert.ToString(finalResult);
+                DisplayTheComment(finalResult);
+            }
+
+            if (MetricRadioButton.Checked)
+            {
+                double weightValue = Convert.ToDouble(WeightInputTextBox.Text);
+                Debug.WriteLine(weightValue);
+                double heightVlaue = Convert.ToDouble(HeightInputTextBox.Text);
+                Debug.WriteLine(heightVlaue);
+                double result = (weightValue / (heightVlaue * heightVlaue));
+                double finalResult = Math.Round(result, 2);
+                BMI_ResultTextBox.Text = Convert.ToString(finalResult);
+                DisplayTheComment(finalResult);
+            }
+        }
+
+        /// <summary>
+        /// This method will clear all user input and selections
+        /// </summary>
+        private void ReturnToDefault()
+        {
+            HeightInputTextBox.Clear();
             WeightInputTextBox.Clear();
-            _feetInputTextBoxSelected = false;
+            BMI_ResultTextBox.Clear();
+            ResultMeaningTextBox.Clear();
             _inchesInputTextBoxSelected = false;
             _weightInputTextBoxSelected = false;
+        }
 
-    }
+        private void DisplayTheComment(double result)
+        {
+            if (result < 18.5)
+            {
+                ResultMeaningTextBox.Text = "Underweight";
+            }
+            if((result>=18.5) && (result <24.9))
+            {
+                ResultMeaningTextBox.Text = "Normal";
+            }
+
+            if ((result > 25) && (result < 29.9))
+            {
+                ResultMeaningTextBox.Text = "Overweight";
+            }
+
+            if (result >= 30)
+            {
+                ResultMeaningTextBox.Text = "Obese";
+            }
+        }
+
     }
 }
