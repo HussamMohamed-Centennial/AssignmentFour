@@ -245,6 +245,8 @@
             this.WeightInputTextBox.Name = "WeightInputTextBox";
             this.WeightInputTextBox.Size = new System.Drawing.Size(106, 38);
             this.WeightInputTextBox.TabIndex = 17;
+            this.WeightInputTextBox.TextChanged += new System.EventHandler(this.WeightInputTextBox_TextChanged);
+            this.WeightInputTextBox.Enter += new System.EventHandler(this.WeightInputTextBox_TextChanged);
             // 
             // HeightInputTypeLabel
             // 
@@ -263,6 +265,8 @@
             this.FeetInputTextBox.Name = "FeetInputTextBox";
             this.FeetInputTextBox.Size = new System.Drawing.Size(50, 38);
             this.FeetInputTextBox.TabIndex = 19;
+            this.FeetInputTextBox.TextChanged += new System.EventHandler(this.FeetInputTextBox_TextChanged);
+            this.FeetInputTextBox.Enter += new System.EventHandler(this.FeetInputTextBox_TextChanged);
             // 
             // FeetLabel
             // 
@@ -281,6 +285,8 @@
             this.InchesInputTextBox.Name = "InchesInputTextBox";
             this.InchesInputTextBox.Size = new System.Drawing.Size(50, 38);
             this.InchesInputTextBox.TabIndex = 21;
+            this.InchesInputTextBox.TextChanged += new System.EventHandler(this.InchesInputTextBox_TextChanged);
+            this.InchesInputTextBox.Enter += new System.EventHandler(this.InchesInputTextBox_TextChanged);
             // 
             // InchesLabel
             // 
