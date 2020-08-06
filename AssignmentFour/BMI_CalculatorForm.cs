@@ -41,6 +41,7 @@ namespace AssignmentFour
             InchesLabel.Text = "in.";
             InchesLabel.Font = new Font("Microsoft Sans Serif", 11.0f);
         }
+
         /// <summary>
         /// This event handler will set different  values for different properties based on user choice 
         /// </summary>
@@ -70,6 +71,7 @@ namespace AssignmentFour
             _weightInputTextBoxSelected = false;
             //Debug.WriteLine("feet select fired");
         }
+
         /// <summary>
         /// This event handler will ensure the focus will be on single text box each time based on user choice
         /// </summary>
@@ -82,6 +84,7 @@ namespace AssignmentFour
             _weightInputTextBoxSelected = false;
             //Debug.WriteLine("inches select fired");
         }
+
         /// <summary>
         /// This event handler will ensure the focus will be on single text box each time based on user choice
         /// </summary>
@@ -94,5 +97,41 @@ namespace AssignmentFour
             _feetInputTextBoxSelected = false;
             //Debug.WriteLine("weight select fired");
         }
+
+        private void NumberButton_Click(object sender, EventArgs e)
+        {
+            Button numberButton = sender as Button;
+
+            if (_inchesInputTextBoxSelected == true)
+            {
+                InchesInputTextBox.Text += numberButton.Text;
+            }
+
+            if (_feetInputTextBoxSelected == true)
+            {
+                FeetInputTextBox.Text += numberButton.Text;
+            }
+
+            if (_weightInputTextBoxSelected == true)
+            {
+                WeightInputTextBox.Text += numberButton.Text;
+            }
+        }
+
+        /// <summary>
+        /// This evemt handler will allow clear button all text field will be clared and public properties will return to the default value
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+            InchesInputTextBox.Clear();
+            FeetInputTextBox.Clear();
+            WeightInputTextBox.Clear();
+            _feetInputTextBoxSelected = false;
+            _inchesInputTextBoxSelected = false;
+            _weightInputTextBoxSelected = false;
+
+    }
     }
 }

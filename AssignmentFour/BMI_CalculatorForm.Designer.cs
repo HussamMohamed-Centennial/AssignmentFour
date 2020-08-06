@@ -32,8 +32,6 @@
             this.CalculateButton = new System.Windows.Forms.Button();
             this.ZeroButton = new System.Windows.Forms.Button();
             this.OneButton = new System.Windows.Forms.Button();
-            this.ThreeButton = new System.Windows.Forms.Button();
-            this.TwoButton = new System.Windows.Forms.Button();
             this.FourButton = new System.Windows.Forms.Button();
             this.FiveButton = new System.Windows.Forms.Button();
             this.SixButton = new System.Windows.Forms.Button();
@@ -42,6 +40,8 @@
             this.NineButton = new System.Windows.Forms.Button();
             this.ClearButton = new System.Windows.Forms.Button();
             this.BackSpaceButton = new System.Windows.Forms.Button();
+            this.ThreeButton = new System.Windows.Forms.Button();
+            this.TwoButton = new System.Windows.Forms.Button();
             this.WeightInputTypeLabel = new System.Windows.Forms.Label();
             this.WeightInputTextBox = new System.Windows.Forms.TextBox();
             this.HeightInputTypeLabel = new System.Windows.Forms.Label();
@@ -50,8 +50,8 @@
             this.InchesInputTextBox = new System.Windows.Forms.TextBox();
             this.InchesLabel = new System.Windows.Forms.Label();
             this.SelectGroupBox = new System.Windows.Forms.GroupBox();
-            this.ImperialRadioButton = new System.Windows.Forms.RadioButton();
             this.MetricRadioButton = new System.Windows.Forms.RadioButton();
+            this.ImperialRadioButton = new System.Windows.Forms.RadioButton();
             this.ResultMeaningTextBox = new System.Windows.Forms.TextBox();
             this.BMI_ResultLabel = new System.Windows.Forms.Label();
             this.BMI_ResultTextBox = new System.Windows.Forms.TextBox();
@@ -124,6 +124,7 @@
             this.ZeroButton.TabIndex = 1;
             this.ZeroButton.Text = "0";
             this.ZeroButton.UseVisualStyleBackColor = true;
+            this.ZeroButton.Click += new System.EventHandler(this.NumberButton_Click);
             // 
             // OneButton
             // 
@@ -133,24 +134,7 @@
             this.OneButton.TabIndex = 2;
             this.OneButton.Text = "1";
             this.OneButton.UseVisualStyleBackColor = true;
-            // 
-            // ThreeButton
-            // 
-            this.ThreeButton.Location = new System.Drawing.Point(171, 323);
-            this.ThreeButton.Name = "ThreeButton";
-            this.ThreeButton.Size = new System.Drawing.Size(50, 39);
-            this.ThreeButton.TabIndex = 3;
-            this.ThreeButton.Text = "3";
-            this.ThreeButton.UseVisualStyleBackColor = true;
-            // 
-            // TwoButton
-            // 
-            this.TwoButton.Location = new System.Drawing.Point(115, 323);
-            this.TwoButton.Name = "TwoButton";
-            this.TwoButton.Size = new System.Drawing.Size(50, 39);
-            this.TwoButton.TabIndex = 4;
-            this.TwoButton.Text = "2";
-            this.TwoButton.UseVisualStyleBackColor = true;
+            this.OneButton.Click += new System.EventHandler(this.NumberButton_Click);
             // 
             // FourButton
             // 
@@ -160,6 +144,7 @@
             this.FourButton.TabIndex = 5;
             this.FourButton.Text = "4";
             this.FourButton.UseVisualStyleBackColor = true;
+            this.FourButton.Click += new System.EventHandler(this.NumberButton_Click);
             // 
             // FiveButton
             // 
@@ -169,6 +154,7 @@
             this.FiveButton.TabIndex = 6;
             this.FiveButton.Text = "5";
             this.FiveButton.UseVisualStyleBackColor = true;
+            this.FiveButton.Click += new System.EventHandler(this.NumberButton_Click);
             // 
             // SixButton
             // 
@@ -178,6 +164,7 @@
             this.SixButton.TabIndex = 7;
             this.SixButton.Text = "6";
             this.SixButton.UseVisualStyleBackColor = true;
+            this.SixButton.Click += new System.EventHandler(this.NumberButton_Click);
             // 
             // SevenButton
             // 
@@ -187,6 +174,7 @@
             this.SevenButton.TabIndex = 8;
             this.SevenButton.Text = "7";
             this.SevenButton.UseVisualStyleBackColor = true;
+            this.SevenButton.Click += new System.EventHandler(this.NumberButton_Click);
             // 
             // EightButton
             // 
@@ -196,6 +184,7 @@
             this.EightButton.TabIndex = 9;
             this.EightButton.Text = "8";
             this.EightButton.UseVisualStyleBackColor = true;
+            this.EightButton.Click += new System.EventHandler(this.NumberButton_Click);
             // 
             // NineButton
             // 
@@ -205,6 +194,7 @@
             this.NineButton.TabIndex = 10;
             this.NineButton.Text = "9";
             this.NineButton.UseVisualStyleBackColor = true;
+            this.NineButton.Click += new System.EventHandler(this.NumberButton_Click);
             // 
             // ClearButton
             // 
@@ -215,6 +205,7 @@
             this.ClearButton.TabIndex = 11;
             this.ClearButton.Text = "Clear";
             this.ClearButton.UseVisualStyleBackColor = true;
+            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // BackSpaceButton
             // 
@@ -225,6 +216,26 @@
             this.BackSpaceButton.TabIndex = 15;
             this.BackSpaceButton.Text = "<-";
             this.BackSpaceButton.UseVisualStyleBackColor = true;
+            // 
+            // ThreeButton
+            // 
+            this.ThreeButton.Location = new System.Drawing.Point(171, 323);
+            this.ThreeButton.Name = "ThreeButton";
+            this.ThreeButton.Size = new System.Drawing.Size(50, 39);
+            this.ThreeButton.TabIndex = 3;
+            this.ThreeButton.Text = "3";
+            this.ThreeButton.UseVisualStyleBackColor = true;
+            this.ThreeButton.Click += new System.EventHandler(this.NumberButton_Click);
+            // 
+            // TwoButton
+            // 
+            this.TwoButton.Location = new System.Drawing.Point(115, 323);
+            this.TwoButton.Name = "TwoButton";
+            this.TwoButton.Size = new System.Drawing.Size(50, 39);
+            this.TwoButton.TabIndex = 4;
+            this.TwoButton.Text = "2";
+            this.TwoButton.UseVisualStyleBackColor = true;
+            this.TwoButton.Click += new System.EventHandler(this.NumberButton_Click);
             // 
             // WeightInputTypeLabel
             // 
@@ -311,6 +322,18 @@
             this.SelectGroupBox.TabIndex = 23;
             this.SelectGroupBox.TabStop = false;
             // 
+            // MetricRadioButton
+            // 
+            this.MetricRadioButton.AutoSize = true;
+            this.MetricRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MetricRadioButton.Location = new System.Drawing.Point(144, 15);
+            this.MetricRadioButton.Name = "MetricRadioButton";
+            this.MetricRadioButton.Size = new System.Drawing.Size(103, 24);
+            this.MetricRadioButton.TabIndex = 0;
+            this.MetricRadioButton.Text = "Metric Unit";
+            this.MetricRadioButton.UseVisualStyleBackColor = true;
+            this.MetricRadioButton.CheckedChanged += new System.EventHandler(this.MetricRadioButton_CheckedChanged);
+            // 
             // ImperialRadioButton
             // 
             this.ImperialRadioButton.AutoSize = true;
@@ -324,18 +347,6 @@
             this.ImperialRadioButton.Text = "Imperial unit";
             this.ImperialRadioButton.UseVisualStyleBackColor = true;
             this.ImperialRadioButton.CheckedChanged += new System.EventHandler(this.ImperialRadioButton_CheckedChanged);
-            // 
-            // MetricRadioButton
-            // 
-            this.MetricRadioButton.AutoSize = true;
-            this.MetricRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MetricRadioButton.Location = new System.Drawing.Point(144, 15);
-            this.MetricRadioButton.Name = "MetricRadioButton";
-            this.MetricRadioButton.Size = new System.Drawing.Size(103, 24);
-            this.MetricRadioButton.TabIndex = 0;
-            this.MetricRadioButton.Text = "Metric Unit";
-            this.MetricRadioButton.UseVisualStyleBackColor = true;
-            this.MetricRadioButton.CheckedChanged += new System.EventHandler(this.MetricRadioButton_CheckedChanged);
             // 
             // ResultMeaningTextBox
             // 
