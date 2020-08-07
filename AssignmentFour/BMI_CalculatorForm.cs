@@ -128,27 +128,43 @@ namespace AssignmentFour
         {
             if (ImperialRadioButton.Checked)
             {
+                if (HeightInputTextBox.Text != String.Empty && WeightInputTextBox.Text != String.Empty)
+                {
+                    double weightValue = Convert.ToDouble(WeightInputTextBox.Text);
+                    Debug.WriteLine(weightValue);
+                    double heightVlaue = Convert.ToDouble(HeightInputTextBox.Text);
+                    Debug.WriteLine(heightVlaue);
+                    double result = ((weightValue * 703) / (heightVlaue * heightVlaue));
+                    double finalResult = Math.Round(result, 2);
+                    BMI_ResultTextBox.Text = Convert.ToString(finalResult);
+                    DisplayTheComment(finalResult);
+                }
+                else
+                {
+                    MessageBox.Show("Please enter your inputs");
+                }
                 
-                double weightValue = Convert.ToDouble(WeightInputTextBox.Text);
-                Debug.WriteLine(weightValue);
-                double heightVlaue = Convert.ToDouble(HeightInputTextBox.Text);
-                Debug.WriteLine(heightVlaue);
-                double result = ((weightValue * 703) / (heightVlaue * heightVlaue));
-                double finalResult = Math.Round(result,2);
-                BMI_ResultTextBox.Text = Convert.ToString(finalResult);
-                DisplayTheComment(finalResult);
+               
             }
 
             if (MetricRadioButton.Checked)
             {
-                double weightValue = Convert.ToDouble(WeightInputTextBox.Text);
-                Debug.WriteLine(weightValue);
-                double heightVlaue = Convert.ToDouble(HeightInputTextBox.Text);
-                Debug.WriteLine(heightVlaue);
-                double result = (weightValue / (heightVlaue * heightVlaue));
-                double finalResult = Math.Round(result, 2);
-                BMI_ResultTextBox.Text = Convert.ToString(finalResult);
-                DisplayTheComment(finalResult);
+                if(HeightInputTextBox.Text != String.Empty && WeightInputTextBox.Text != String.Empty)
+                {
+                    double weightValue = Convert.ToDouble(WeightInputTextBox.Text);
+                    Debug.WriteLine(weightValue);
+                    double heightVlaue = Convert.ToDouble(HeightInputTextBox.Text);
+                    Debug.WriteLine(heightVlaue);
+                    double result = (weightValue / (heightVlaue * heightVlaue));
+                    double finalResult = Math.Round(result, 2);
+                    BMI_ResultTextBox.Text = Convert.ToString(finalResult);
+                    DisplayTheComment(finalResult);
+                }
+                else
+                {
+                    MessageBox.Show("Please enter your inputs");
+                }
+
             }
         }
 

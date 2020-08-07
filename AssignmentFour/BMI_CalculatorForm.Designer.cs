@@ -75,7 +75,6 @@
             this.tableLayoutPanel1.Controls.Add(this.EightButton, 3, 6);
             this.tableLayoutPanel1.Controls.Add(this.NineButton, 4, 6);
             this.tableLayoutPanel1.Controls.Add(this.ClearButton, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.BackSpaceButton, 3, 5);
             this.tableLayoutPanel1.Controls.Add(this.ThreeButton, 3, 7);
             this.tableLayoutPanel1.Controls.Add(this.TwoButton, 2, 7);
             this.tableLayoutPanel1.Controls.Add(this.WeightInputTypeLabel, 0, 4);
@@ -86,7 +85,8 @@
             this.tableLayoutPanel1.Controls.Add(this.BMI_ResultLabel, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.BMI_ResultTextBox, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.HeightInputTextBox, 3, 3);
-            this.tableLayoutPanel1.Controls.Add(this.DecimalButton, 4, 5);
+            this.tableLayoutPanel1.Controls.Add(this.DecimalButton, 4, 8);
+            this.tableLayoutPanel1.Controls.Add(this.BackSpaceButton, 4, 5);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 9;
@@ -99,18 +99,20 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(280, 417);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // CalculateButton
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.CalculateButton, 5);
+            this.CalculateButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tableLayoutPanel1.SetColumnSpan(this.CalculateButton, 4);
             this.CalculateButton.Location = new System.Drawing.Point(3, 368);
             this.CalculateButton.Name = "CalculateButton";
-            this.CalculateButton.Size = new System.Drawing.Size(274, 43);
+            this.CalculateButton.Size = new System.Drawing.Size(218, 43);
             this.CalculateButton.TabIndex = 0;
             this.CalculateButton.Text = "Calculate";
-            this.CalculateButton.UseVisualStyleBackColor = true;
+            this.CalculateButton.UseVisualStyleBackColor = false;
             this.CalculateButton.Click += new System.EventHandler(this.CalculateButton_Click);
             // 
             // ZeroButton
@@ -195,23 +197,26 @@
             // 
             // ClearButton
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.ClearButton, 3);
+            this.ClearButton.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.tableLayoutPanel1.SetColumnSpan(this.ClearButton, 4);
             this.ClearButton.Location = new System.Drawing.Point(3, 233);
             this.ClearButton.Name = "ClearButton";
-            this.ClearButton.Size = new System.Drawing.Size(162, 39);
+            this.ClearButton.Size = new System.Drawing.Size(218, 39);
             this.ClearButton.TabIndex = 11;
             this.ClearButton.Text = "Clear";
-            this.ClearButton.UseVisualStyleBackColor = true;
+            this.ClearButton.UseVisualStyleBackColor = false;
             this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // BackSpaceButton
             // 
-            this.BackSpaceButton.Location = new System.Drawing.Point(171, 233);
+            this.BackSpaceButton.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.BackSpaceButton.Font = new System.Drawing.Font("Wingdings", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.BackSpaceButton.Location = new System.Drawing.Point(227, 233);
             this.BackSpaceButton.Name = "BackSpaceButton";
             this.BackSpaceButton.Size = new System.Drawing.Size(50, 39);
             this.BackSpaceButton.TabIndex = 15;
-            this.BackSpaceButton.Text = "<-";
-            this.BackSpaceButton.UseVisualStyleBackColor = true;
+            this.BackSpaceButton.Text = "ï";
+            this.BackSpaceButton.UseVisualStyleBackColor = false;
             this.BackSpaceButton.Click += new System.EventHandler(this.BackSpaceButton_Click);
             // 
             // ThreeButton
@@ -348,9 +353,9 @@
             // 
             // DecimalButton
             // 
-            this.DecimalButton.Location = new System.Drawing.Point(227, 233);
+            this.DecimalButton.Location = new System.Drawing.Point(227, 368);
             this.DecimalButton.Name = "DecimalButton";
-            this.DecimalButton.Size = new System.Drawing.Size(50, 39);
+            this.DecimalButton.Size = new System.Drawing.Size(50, 43);
             this.DecimalButton.TabIndex = 10;
             this.DecimalButton.Text = ".";
             this.DecimalButton.UseVisualStyleBackColor = true;
