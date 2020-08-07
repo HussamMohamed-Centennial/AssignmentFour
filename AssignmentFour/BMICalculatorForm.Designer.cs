@@ -1,6 +1,6 @@
 ﻿namespace AssignmentFour
 {
-    partial class BMI_CalculatorForm
+    partial class BMICalculatorForm
     {
         /// <summary>
         /// Required designer variable.
@@ -107,6 +107,7 @@
             // 
             this.CalculateButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tableLayoutPanel1.SetColumnSpan(this.CalculateButton, 4);
+            this.CalculateButton.Enabled = false;
             this.CalculateButton.Location = new System.Drawing.Point(3, 368);
             this.CalculateButton.Name = "CalculateButton";
             this.CalculateButton.Size = new System.Drawing.Size(218, 43);

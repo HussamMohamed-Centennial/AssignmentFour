@@ -1,4 +1,14 @@
-﻿using System;
+﻿//==============================================================================================================
+// Author's Name : Hussam Eldin Mohamed 
+// Author's student number : 301090956
+// Date last Modified : Aug 6 , 2020
+// Progam description : this is A BMI calculator app which will take input from the user ( height and weight)
+//                      then it will compute the BMI based on user selection  (imperial or metric)
+// Revision history   : none
+//==============================================================================================================
+
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,14 +21,14 @@ using System.Windows.Forms;
 
 namespace AssignmentFour
 {
-    public partial class BMI_CalculatorForm : Form
+    public partial class BMICalculatorForm : Form
     {
         // PUBLIC PROPERTIES
         
-        public static bool _inchesInputTextBoxSelected = false;
-        public static bool _weightInputTextBoxSelected = false;
+        private static bool _inchesInputTextBoxSelected = false;
+        private static bool _weightInputTextBoxSelected = false;
         
-        public BMI_CalculatorForm()
+        public BMICalculatorForm()
         {
             InitializeComponent();
         }
@@ -108,8 +118,11 @@ namespace AssignmentFour
                 {
                     WeightInputTextBox.Text += numberButton.Text;
                 }
+            }
 
-
+            if (WeightInputTextBox.Text != String.Empty && HeightInputTextBox.Text != String.Empty)
+            {
+                CalculateButton.Enabled = true;
             }
         }
 
@@ -138,6 +151,8 @@ namespace AssignmentFour
                     double finalResult = Math.Round(result, 2);
                     BMI_ResultTextBox.Text = Convert.ToString(finalResult);
                     DisplayTheComment(finalResult);
+                    BMI_ResultTextBox.ReadOnly = false;
+
                 }
                 else
                 {
@@ -159,6 +174,8 @@ namespace AssignmentFour
                     double finalResult = Math.Round(result, 2);
                     BMI_ResultTextBox.Text = Convert.ToString(finalResult);
                     DisplayTheComment(finalResult);
+                    BMI_ResultTextBox.ReadOnly = false;
+                    CalculateButton.Enabled = false;
                 }
                 else
                 {
@@ -179,6 +196,8 @@ namespace AssignmentFour
             ResultMeaningTextBox.Clear();
             _inchesInputTextBoxSelected = false;
             _weightInputTextBoxSelected = false;
+            BMI_ResultTextBox.ReadOnly = true;
+            CalculateButton.Enabled = false;
         }
 
         private void DisplayTheComment(double result)
