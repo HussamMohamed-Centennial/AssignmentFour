@@ -212,6 +212,7 @@
             this.BackSpaceButton.TabIndex = 15;
             this.BackSpaceButton.Text = "<-";
             this.BackSpaceButton.UseVisualStyleBackColor = true;
+            this.BackSpaceButton.Click += new System.EventHandler(this.BackSpaceButton_Click);
             // 
             // ThreeButton
             // 
@@ -238,12 +239,12 @@
             this.WeightInputTypeLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.WeightInputTypeLabel.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.WeightInputTypeLabel, 3);
-            this.WeightInputTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WeightInputTypeLabel.Location = new System.Drawing.Point(3, 196);
+            this.WeightInputTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WeightInputTypeLabel.Location = new System.Drawing.Point(3, 197);
             this.WeightInputTypeLabel.Name = "WeightInputTypeLabel";
-            this.WeightInputTypeLabel.Size = new System.Drawing.Size(151, 22);
+            this.WeightInputTypeLabel.Size = new System.Drawing.Size(157, 20);
             this.WeightInputTypeLabel.TabIndex = 16;
-            this.WeightInputTypeLabel.Text = "Weight in Pounds";
+            this.WeightInputTypeLabel.Text = "My Weight in Pounds";
             // 
             // WeightInputTextBox
             // 
@@ -254,18 +255,19 @@
             this.WeightInputTextBox.TabIndex = 17;
             this.WeightInputTextBox.TextChanged += new System.EventHandler(this.WeightInputTextBox_TextChanged);
             this.WeightInputTextBox.Enter += new System.EventHandler(this.WeightInputTextBox_TextChanged);
+            this.WeightInputTextBox.Leave += new System.EventHandler(this.WeightInputTextBox_Leave);
             // 
             // HeightInputTypeLabel
             // 
             this.HeightInputTypeLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.HeightInputTypeLabel.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.HeightInputTypeLabel, 3);
-            this.HeightInputTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HeightInputTypeLabel.Location = new System.Drawing.Point(3, 151);
+            this.HeightInputTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HeightInputTypeLabel.Location = new System.Drawing.Point(3, 152);
             this.HeightInputTypeLabel.Name = "HeightInputTypeLabel";
-            this.HeightInputTypeLabel.Size = new System.Drawing.Size(138, 22);
+            this.HeightInputTypeLabel.Size = new System.Drawing.Size(148, 20);
             this.HeightInputTypeLabel.TabIndex = 18;
-            this.HeightInputTypeLabel.Text = "Height in Inches";
+            this.HeightInputTypeLabel.Text = "My Height in Inches";
             // 
             // SelectGroupBox
             // 
@@ -310,6 +312,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.ResultMeaningTextBox, 5);
             this.ResultMeaningTextBox.Location = new System.Drawing.Point(3, 53);
             this.ResultMeaningTextBox.Name = "ResultMeaningTextBox";
+            this.ResultMeaningTextBox.ReadOnly = true;
             this.ResultMeaningTextBox.Size = new System.Drawing.Size(274, 38);
             this.ResultMeaningTextBox.TabIndex = 24;
             // 
@@ -329,6 +332,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.BMI_ResultTextBox, 3);
             this.BMI_ResultTextBox.Location = new System.Drawing.Point(115, 3);
             this.BMI_ResultTextBox.Name = "BMI_ResultTextBox";
+            this.BMI_ResultTextBox.ReadOnly = true;
             this.BMI_ResultTextBox.Size = new System.Drawing.Size(162, 38);
             this.BMI_ResultTextBox.TabIndex = 26;
             // 
@@ -340,6 +344,7 @@
             this.HeightInputTextBox.Size = new System.Drawing.Size(106, 38);
             this.HeightInputTextBox.TabIndex = 19;
             this.HeightInputTextBox.Enter += new System.EventHandler(this.InchesInputTextBox_TextChanged);
+            this.HeightInputTextBox.Leave += new System.EventHandler(this.HeightInputTextBox_Leave);
             // 
             // DecimalButton
             // 

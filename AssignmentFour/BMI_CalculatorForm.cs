@@ -30,10 +30,10 @@ namespace AssignmentFour
         /// <param name="e"></param>
         private void ImperialRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            HeightInputTypeLabel.Text = "Height in Inches";
-            HeightInputTypeLabel.Font = new Font("Microsoft Sans Serif", 13.0f);
-            WeightInputTypeLabel.Text = "Weight in Pounds";
-            WeightInputTypeLabel.Font = new Font("Microsoft Sans Serif", 13.0f);
+            HeightInputTypeLabel.Text = "My Height in Inches";
+            HeightInputTypeLabel.Font = new Font("Microsoft Sans Serif", 12.0f);
+            WeightInputTypeLabel.Text = "My Weight in Pounds";
+            WeightInputTypeLabel.Font = new Font("Microsoft Sans Serif", 12.0f);
             ReturnToDefault();
         }
 
@@ -44,10 +44,10 @@ namespace AssignmentFour
         /// <param name="e"></param>
         private void MetricRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            HeightInputTypeLabel.Text = "Height in Meters";
-            HeightInputTypeLabel.Font = new Font("Microsoft Sans Serif", 13.0f);
-            WeightInputTypeLabel.Text = "Weight in Kilogram";
-            WeightInputTypeLabel.Font = new Font("Microsoft Sans Serif", 13.0f);
+            HeightInputTypeLabel.Text = "My Height in Meters";
+            HeightInputTypeLabel.Font = new Font("Microsoft Sans Serif", 12.0f);
+            WeightInputTypeLabel.Text = "My Weight in KG";
+            WeightInputTypeLabel.Font = new Font("Microsoft Sans Serif", 12.0f);
             ReturnToDefault();
         }
 
@@ -93,7 +93,6 @@ namespace AssignmentFour
                 {
                     HeightInputTextBox.Text += numberButton.Text;
                 }
-                
             }
             
             if (_weightInputTextBoxSelected == true)
@@ -129,6 +128,7 @@ namespace AssignmentFour
         {
             if (ImperialRadioButton.Checked)
             {
+                
                 double weightValue = Convert.ToDouble(WeightInputTextBox.Text);
                 Debug.WriteLine(weightValue);
                 double heightVlaue = Convert.ToDouble(HeightInputTextBox.Text);
@@ -187,5 +187,54 @@ namespace AssignmentFour
             }
         }
 
+
+        /// <summary>
+        /// This event handler will validate the text box input which it should be numbers only
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void HeightInputTextBox_Leave(object sender, EventArgs e)
+        {
+            
+            if (System.Text.RegularExpressions.Regex.IsMatch(HeightInputTextBox.Text, "[^0-9]"))
+            {
+                HeightInputTextBox.Focus();
+                MessageBox.Show("Height should be number Only!");
+            }
+            
+        }
+
+        private void WeightInputTextBox_Leave(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(WeightInputTextBox.Text, "[^0-9-(.)]"))
+            {
+                WeightInputTextBox.Focus();
+                MessageBox.Show("Weight should be number Only!");
+            }
+        }
+
+        /// <summary>
+        /// This event handler will implement  back space function
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BackSpaceButton_Click(object sender, EventArgs e)
+        {
+            if (_weightInputTextBoxSelected == true)
+            {
+                if (WeightInputTextBox.Text != String.Empty)
+                {
+                    WeightInputTextBox.Text = WeightInputTextBox.Text.Remove(WeightInputTextBox.Text.Length - 1);
+                }
+            }
+            if (_inchesInputTextBoxSelected == true)
+            {
+                if (HeightInputTextBox.Text != String.Empty)
+                {
+                    HeightInputTextBox.Text = HeightInputTextBox.Text.Remove(HeightInputTextBox.Text.Length - 1);
+                }
+            }
+
+        }
     }
 }
