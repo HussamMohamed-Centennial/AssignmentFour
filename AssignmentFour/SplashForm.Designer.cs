@@ -44,7 +44,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::AssignmentFour.Properties.Resources.BMIlogo;
-            this.pictureBox1.Location = new System.Drawing.Point(-7, 129);
+            this.pictureBox1.Location = new System.Drawing.Point(-1, 161);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(312, 176);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -56,7 +56,7 @@
             this.SplashFormLabel.AutoSize = true;
             this.SplashFormLabel.Font = new System.Drawing.Font("Impact", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SplashFormLabel.ForeColor = System.Drawing.Color.Green;
-            this.SplashFormLabel.Location = new System.Drawing.Point(-1, 113);
+            this.SplashFormLabel.Location = new System.Drawing.Point(12, 132);
             this.SplashFormLabel.Name = "SplashFormLabel";
             this.SplashFormLabel.Size = new System.Drawing.Size(193, 42);
             this.SplashFormLabel.TabIndex = 3;
