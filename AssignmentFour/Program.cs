@@ -1,13 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AssignmentFour
 {
-    static class Program
-    {
+   public static class Program
+   {
+
+       public static BMICalculatorForm BmiCalculatorForm;
+       public static SplashForm SplashForm;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,7 +21,9 @@ namespace AssignmentFour
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BMICalculatorForm());
+
+            BmiCalculatorForm = new BMICalculatorForm();
+            Application.Run(new SplashForm());
         }
     }
 }
